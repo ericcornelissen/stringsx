@@ -1,3 +1,5 @@
+[![GitHub Actions][ci-image]][ci-url]
+
 # stringsx
 
 The `stringsx` package is an extensions of Go's standard [`strings`] package
@@ -51,3 +53,6 @@ The license for this project is the same as the license for Golang
 [similar projects]: https://github.com/search?l=Go&q=stringsx&type=Repositories
 [`strings`]: https://golang.org/pkg/strings
 [the empty string]: https://en.wikipedia.org/wiki/Empty_string
+
+[ci-url]: https://github.com/ericcornelissen/stringsx/actions?query=workflow%3AGo
+[ci-image]: https://github.com/ericcornelissen/stringsx/workflows/Go/badge.svg
