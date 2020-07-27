@@ -5,9 +5,12 @@ additional utility functions. Namely:
 	• All(elemens []string condition func(string) bool) bool
 	• Any(elems []string, condition func(string) bool) bool
 	• IsEmpty(s string) bool
+	• IsValidUTF8(s string) bool
 	• MapAll(elems []string, mapping func(string) string) (mapped []string)
 */
 package stringsx
+
+import "unicode/utf8"
 
 // All tests for every element of its first argument if the condition holds. If
 // the condition holds for every string the return value will be true, otherwise
@@ -38,6 +41,11 @@ func Any(elems []string, condition func(string) bool) bool {
 // IsEmpty tests whether the string s is the empty string.
 func IsEmpty(s string) bool {
 	return s == ""
+}
+
+// IsValidUTF8 tests whether the string s is a valid UTF-8 string.
+func IsValidUTF8(s string) bool {
+	return utf8.ValidString(s)
 }
 
 // MapAll maps every element of its first argument according to the provided
