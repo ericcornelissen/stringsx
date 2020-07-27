@@ -26,6 +26,13 @@ func ExampleIsEmpty() {
 	// false
 }
 
+func ExampleIsValidUTF8() {
+	fmt.Println(IsValidUTF8("foobar"))
+	fmt.Println(IsValidUTF8("\xbf"))
+	// Output: true
+	// false
+}
+
 func ExampleMapAll() {
 	elems := []string{" foo  ", "  bar "}
 	mapped := MapAll(elems, TrimSpace)
@@ -134,6 +141,24 @@ func TestIsEmpty(t *testing.T) {
 
 	if isEmpty := IsEmpty("Hello world!"); isEmpty == true {
 		t.Error("Unexpected result for non-empty string")
+	}
+}
+
+func TestIsValidUTF8(t *testing.T) {
+	if valid := IsValidUTF8(""); valid == false {
+		t.Error("Unexpected result for empty string")
+	}
+
+	if valid := IsValidUTF8("Hello world!"); valid == false {
+		t.Error("Unexpected result for non-empty string")
+	}
+
+	if valid := IsValidUTF8("\xbf"); valid == true {
+		t.Error("Unexpected result for string of non-UTF8 characters")
+	}
+
+	if valid := IsValidUTF8("foo\xbf"); valid == true {
+		t.Error("Unexpected result for string with non-UTF8 characters")
 	}
 }
 
