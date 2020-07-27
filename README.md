@@ -39,6 +39,10 @@ otherwise the return value will be `false`.
 
 Test if the string _s_ is [the empty string].
 
+### `IsValidUTF8(s string) bool`
+
+Test if the string _s_ is a valid [UTF-8] string.
+
 ### `MapAll(elems []string, mapping func(string) string) []string`
 
 Create a new slice populated with the results of calling the _mapping_ on every
@@ -53,6 +57,7 @@ The license for this project is the same as the license for Golang
 [similar projects]: https://github.com/search?l=Go&q=stringsx&type=Repositories
 [`strings`]: https://golang.org/pkg/strings
 [the empty string]: https://en.wikipedia.org/wiki/Empty_string
+[UTF-8]: https://en.wikipedia.org/wiki/UTF-8
 
 [ci-url]: https://github.com/ericcornelissen/stringsx/actions?query=workflow%3AGo
 [ci-image]: https://github.com/ericcornelissen/stringsx/workflows/Go/badge.svg
